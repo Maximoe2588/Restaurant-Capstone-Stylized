@@ -1,0 +1,71 @@
+
+.side-bar {
+  background-color: #393a44;
+  min-width: 200px;
+}
+
+.reservation-box {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  padding: 30px;
+  margin-bottom: 10px;
+}
+
+
+.reservation-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.reservation-details > * {
+  margin-right: 10px;
+}
+
+.reservation-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reservation-status > span {
+  flex-grow: 1;
+}
+
+.reservation-status > .bg-light {
+  flex-shrink: 0;
+  margin-left: 10px;
+  padding: 5px;
+}
+
+.reservation-info {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+button[data-table-id-finish] {
+  position: relative; /* sets the button to be positioned relative to its current position */
+  top: -10px; /* adjust the value as needed */
+}
+
+span[data-table-id-status] {
+  font-family: Arial, sans-serif; /* replace with the font you want for both "Occupied" and "Free" */
+  font-weight: bold; /* apply bold font to both "Occupied" and "Free" */
+  font-size: 16px; /* adjust the font size as needed */
+}
+
+span.occupied {
+  color: red; /* apply red color to "Occupied" */
+}
+
+span.free {
+  color: green; /* apply green color to "Free" */
+}
