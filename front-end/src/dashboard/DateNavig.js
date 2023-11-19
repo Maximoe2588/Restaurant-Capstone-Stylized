@@ -11,7 +11,7 @@ function DateNavigation({ date }) {
       <nav className="nav mb-1 bg-light w-75 mx-auto justify-content-center text-center"
         aria-label="Change date">
         <Link
-          className="nav-link border border-left-0 border-secondary bg-white"
+          className="nav-link border border-secondary bg-white"
           to={`/dashboard?date=${previous(date)}`}
           aria-label="Previous"
         >
@@ -21,14 +21,14 @@ function DateNavigation({ date }) {
           <span> Previous </span>
         </Link>
         <Link
-          className="nav-link border border-top-0 border-primary mx-3 px-2 bg-white"
+          className="nav-link border border-primary mx-3 px-2 bg-white"
           to={`/dashboard?date=${today()}`}
           aria-label="Today"
         >
           <span> Today </span>
         </Link>
         <Link
-          className="nav-link border border-right-0 border-secondary bg-white"
+          className="nav-link border border-secondary bg-white"
           to={`/dashboard?date=${next(date)}`}
           aria-label="Next"
         >
