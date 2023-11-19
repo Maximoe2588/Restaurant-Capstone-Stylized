@@ -6,6 +6,7 @@ import ErrorAlert from "../layout/ErrorAlert";
 import DateNavigation from "./DateNavig";
 import ReservationsList from "../reservations/list/ReservationsList";
 import TablesList from "../tables/TablesList";
+import "./Dashboard.css";
 
 
 
@@ -63,7 +64,7 @@ function Dashboard({ date }) {
         </div>
         <div className="row">
           <div className="col-md-12 mx-auto">
-            <fieldset className="border border-bottom-0 border-dark p-3 m-0">
+            <fieldset className="border border-dark p-3 m-0">
               <legend className="pl-2 text-white shadow bg-dark rounded sticky-top">
                 Reservations
               </legend>
@@ -74,7 +75,7 @@ function Dashboard({ date }) {
         </div>
         <div className="row mt-3">
           <div className="col-md-12 mx-auto">
-            <fieldset className="border border-bottom-0 border-dark p-3 m-0">
+            <fieldset className="border border-dark p-3 m-0">
               <legend className="pl-2 text-white shadow bg-dark rounded sticky-top">
                 Tables
               </legend>
