@@ -1,6 +1,6 @@
 const knex = require("../db/connection");
 
-// returns in progress reservations for a specific date
+
 const searchByDate = async (date) => {
   const reservations = await knex("reservations")
     .select("*")
@@ -10,7 +10,7 @@ const searchByDate = async (date) => {
   return reservations;
 };
 
-// returns all reservations that partially match the searched phone number
+
 const searchByPhone = async (mobile_number) => {
   const reservations = await knex("reservations")
     .whereRaw(
@@ -21,7 +21,7 @@ const searchByPhone = async (mobile_number) => {
   return reservations;
 };
 
-// retrieves a single reservation from the "res" table using the provided ID
+
 function read(id) {
   return knex("reservations")
     .select("*")
@@ -29,7 +29,7 @@ function read(id) {
     .then((result) => result[0]);
 }
 
-// inserts a new reservation into the "res" table and returns the inserted data
+
 function create(reservation) {
   return knex("reservations")
     .insert(reservation)
@@ -37,7 +37,7 @@ function create(reservation) {
     .then((result) => result[0]);
 }
 
-// updates existing reservation in the "res" table and returns the updated data
+
 function update(reservation_id, updatedReservation) {
   return knex("reservations")
     .where({ reservation_id })
@@ -45,7 +45,6 @@ function update(reservation_id, updatedReservation) {
     .then((result) => result[0]);
 }
 
-// updates status of reservation 
 function updateReservationAvailability(reservation_id, status) {
   return knex("reservations")
     .where({ reservation_id })
