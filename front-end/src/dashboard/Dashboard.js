@@ -6,6 +6,7 @@ import ErrorAlert from "../layout/ErrorAlert";
 import DateNavigation from "./DateNavig";
 import ReservationsList from "../reservations/list/ReservationsList";
 import TablesList from "../tables/TablesList";
+import CustomDatePicker from "./CustomDatePicker";
 import "./Dashboard.css";
 
 
@@ -60,6 +61,7 @@ function Dashboard({ date }) {
           <div className="col-12 mx-auto my-3">
             <h2 className="mb-0 text-center">{displayDateLong}</h2>
             <DateNavigation date={date} />
+            <CustomDatePicker initialDate={date} />
           </div>
         </div>
         <div className="row">
