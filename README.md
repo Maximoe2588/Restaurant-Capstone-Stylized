@@ -1,49 +1,68 @@
 # Capstone: Restaurant Reservation System
 
-This is a full stack capstone project for Thinkful's software engineering bootcamp. The following scenario was given as a prompt:
+# Restaurant Reservation System
 
-You have been hired as a full stack developer at a startup that is creating a reservation system for fine dining restaurants. The software is used only by restaurant personnel - at this point, the customers will not access the system online.
+## Live Demo
 
-User Stories
-The application was developed following the user stories supplied by a figurative manager, using a test driven development process. Users (restaurant employees) of this application can currently:
+Explore the Restaurant Reservation System through our interactive live demo.
 
-Create a new reservation (when a customer calls in) with contact details
+## Project Overview
 
-Multiple validations ensure a reservation can not be made outside of business hours
+This full-stack capstone project was developed for Thinkful's Software Engineering Bootcamp. We tackled a real-world challenge: creating a reservation system designed for fine dining restaurants, used exclusively by restaurant personnel.
 
-Create instances of each table and seating capacity that are available to customers so that reservations can be assigned to a table when the party arrives at the restaurant
+## User Stories
 
-View a dashboard for the current day (with date navigation to other days available) that shows reservations and tables in the same view to make managing the flow of customers in and out of the restaurant
+Developed with a Test-Driven Development (TDD) approach, our application caters to the needs of restaurant employees, allowing them to:
 
-Update a reservation with new details if a customer calls back and needs to make an update
+- **Create Reservations:** Register new reservations with customer contact details. Includes multiple validations to prevent bookings outside business hours.
+- **Manage Tables:** Define each table and its seating capacity for optimal reservation assignments.
+- **Dashboard:** Access a daily dashboard displaying reservations and tables, with date navigation for efficient customer flow management.
+- **Edit Reservations:** Update reservation details as per customer requests.
+- **Search Functionality:** Find reservations using a partial match of the phone number.
+- **Status Control:** Monitor and update the status of reservations and tables throughout the customer dining experience.
 
-Search for that reservation using partial match of phone number used for the reservation
+## Technologies
 
-Control the displayed "Status" of a reservation and a table through the lifecycle of a party arriving, eating, and leaving the restaurant
+### Back-end
 
-Technologies used
+- Node.js
+- Express
+- Knex
+- PostgreSQL (via ElephantSQL)
+- Jest (for testing)
 
- -Back-end
+### Front-end
 
-	Node
-	Express
-	Knex
-	PostgreSQL (via ElephantSQL)
-	Jest
-	
--Front-end
+- React (including Router, Hooks, and Error Boundaries)
+- Bootstrap
+- End-to-End Testing
 
-	React (router, hooks, error boundaries, etc...)
-	Bootstrap
-	e2e tests
+## API Endpoints
 
+Our back-end API, hosted at `https://final-capstone-backend.herokuapp.com`, provides the following endpoints:
 
-Installation
-	Fork and clone this repository.
-	Run cp ./back-end/.env.sample ./back-end/.env.
-	Update the ./back-end/.env file with db connections. You can set some up for free with ElephantSQL database instances.
-	Run cp ./front-end/.env.sample ./front-end/.env.
-	You should not need to make changes to the ./front-end/.env file unless you want to connect to a backend at a location other than http://localhost:5000.
-	Run npm install to install project dependencies.
-	Run npm run start:dev from the back-end directory to start your server in development mode.
-Run npm start from the front-end directory to start the React app at http://localhost:3000.
+| Method | Endpoint                        | Description                                     |
+| ------ | ------------------------------- | ----------------------------------------------- |
+| GET    | /reservations                   | Retrieves all reservations                      |
+| POST   | /reservations                   | Creates a new reservation                       |
+| GET    | /reservations?date='YYYY-MM-DD' | Fetches reservations by date (sorted ascending) |
+| GET    | /reservations?mobile_number=123 | Searches reservations by phone number partial match |
+| GET    | /reservations/:reservationId    | Gets a specific reservation by ID              |
+| PUT    | /reservations/:reservationId    | Updates a specific reservation                  |
+| PUT    | /reservations/:reservationId/status | Updates only the status of a reservation     |
+| GET    | /tables                         | Retrieves all tables                            |
+| POST   | /tables                         | Creates a new table                             |
+| PUT    | /tables:table_id/seat           | Assigns a reservation to a table and sets status to "occupied" |
+| DELETE | /tables:table_id/seat           | Removes a reservation from a table and sets status to "free" |
+
+## Installation Guide
+
+1. **Clone the Repository:** Fork and clone this repository.
+2. **Environment Setup:**
+   - Run `cp ./back-end/.env.sample ./back-end/.env`.
+   - Update the `./back-end/.env` file with your database connections (ElephantSQL instances recommended).
+   - Run `cp ./front-end/.env.sample ./front-end/.env` (adjust if a different backend URL is needed).
+3. **Install Dependencies:** Execute `npm install` to install necessary dependencies.
+4. **Start the Server:**
+   - For backend, run `npm run start:dev` in the back-end directory.
+   - For frontend, execute `npm start` in the front-end directory. The app
