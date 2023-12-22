@@ -25,6 +25,11 @@ function Dashboard({ date }) {
   
     useEffect(loadReservations, [date]);
     useEffect(loadTables, []);
+    useEffect(() => {
+      console.log('Dashboard date has changed:', date);
+      loadReservations();
+  }, [date]);
+
   
     function loadReservations() {
       setReservations("loading");

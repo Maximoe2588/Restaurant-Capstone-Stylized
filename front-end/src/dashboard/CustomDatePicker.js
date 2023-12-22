@@ -9,8 +9,12 @@ function CustomDatePicker({ initialDate }) {
 
   const handleDateChange = (date) => {
     try {
+      console.log('Selected date in CustomDatePicker:', date); 
       setSelectedDate(date);
-      const formattedDate = date.toISOString().split('T')[0];
+      const formattedDate = date.getFullYear() + '-' 
+                            + String(date.getMonth() + 1).padStart(2, '0') + '-' 
+                            + String(date.getDate()).padStart(2, '0');
+
       history.push(`/dashboard?date=${formattedDate}`);
     } catch (error) {
       console.error("Error in handleDateChange:", error);
