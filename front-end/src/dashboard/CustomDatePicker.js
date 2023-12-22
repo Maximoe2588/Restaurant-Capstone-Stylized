@@ -23,9 +23,9 @@ function CustomDatePicker({ initialDate }) {
   };
 
   return (
-    <>
+    <div className="mx-auto justify-content-center text-center" >
     <DatePicker selected={selectedDate} onChange={handleDateChange} />
-    </>
+    </div>
   );
 }
 

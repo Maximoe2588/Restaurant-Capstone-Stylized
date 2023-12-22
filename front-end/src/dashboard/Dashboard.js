@@ -66,13 +66,13 @@ function Dashboard({ date }) {
           <div className="col-12 mx-auto my-3">
             <h2 className="mb-0 text-center">{displayDateLong}</h2>
             <DateNavigation date={date} />
-            <CustomDatePicker initialDate={date} />
+            <CustomDatePicker initialDate={date} className="custom-date-picker" />
           </div>
         </div>
         <div className="row">
           <div className="col-md-12 mx-auto">
             <fieldset className="border border-dark p-3 m-0">
-              <legend className="pl-2 text-white shadow bg-dark rounded sticky-top">
+              <legend className="pl-2 text-white shadow bg-dark rounded">
                 Reservations
               </legend>
               <ReservationsList reservations={reservations} />
@@ -83,7 +83,7 @@ function Dashboard({ date }) {
         <div className="row mt-3">
           <div className="col-md-12 mx-auto">
             <fieldset className="border border-dark p-3 m-0">
-              <legend className="pl-2 text-white shadow bg-dark rounded sticky-top">
+              <legend className="pl-2 text-white shadow bg-dark rounded">
                 Tables
               </legend>
               <TablesList tables={tables} />

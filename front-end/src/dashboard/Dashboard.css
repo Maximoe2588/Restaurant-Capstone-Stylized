@@ -1,0 +1,38 @@
+.custom-date-picker {
+    position: relative; /* Ensure it's positioned so z-index takes effect */
+    z-index: 999999; /* Use a high value to ensure it's above other elements */
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+  }
+  
+  .react-datepicker__month-container {
+    position: relative; /* Position it absolutely relative to its positioned parent */
+    align-items: center; /* Move it above the navigation buttons; adjust as needed */
+    justify-content: center; /* Align to the right; adjust as needed if necessary */
+    z-index: 999999; /* Ensure it's above other elements */
+  }
+  
+  .react-datepicker-popper {
+    display: contents;
+    margin-bottom: 40px;
+
+  }
+
+  .react-datepicker__tab-loop {
+    padding-top: 20px;
+  }
+
+  .react-datepicker__input-container {
+    padding-top: 10px;
+  }
+
+  .react-datepicker__header {
+    padding-top: 30px;
+  }
+
+  @media (max-width: 768px) {
+    .react-datepicker__month-container {
+      top: -250px; /* Adjust for smaller screens */
+    }
+  }
