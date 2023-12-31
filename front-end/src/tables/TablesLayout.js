@@ -8,6 +8,20 @@ function TablesLayout({ table }) {
     const [finishTableError, setFinishTableError] = useState(null);
     const history = useHistory();
 
+ // check if the table is occupied
+    const occupied = !!reservation_id;
+
+
+    let tableStatusClass = occupied ? "occupied" : "free";
+    let cardHeaderClass = "card-header p-0 py-2";
+
+    if (occupied && reservation_id) {
+        tableStatusClass += " seated";
+        cardHeaderClass += " seated";
+    }
+
+  
+  
     // handle finishing a table
     const confirmFinish = async () => {
         if (
@@ -32,16 +46,15 @@ function TablesLayout({ table }) {
         }
     };
 
-    // check if the table is occupied
-    const occupied = !!reservation_id;
+   
 
     return (
         <div style={{ minWidth: "200px", maxWidth: "200px" }}>
-            <h5 className="card-header p-0 py-2">Table {table_name}</h5>
-            <div>
+            <h5 className={cardHeaderClass}>Table {table_name}</h5>
+            <div className={tableStatusClass}>
                 <div>
                     {`Status: `}
-                    <span data-table-id-status={`${table_id}`} className={occupied ? "occupied" : "free"}>
+                    <span data-table-id-status={`${table_id}`} className={tableStatusClass}>
                         {occupied ? "Occupied" : "Free"}
                     </span>
                 </div>

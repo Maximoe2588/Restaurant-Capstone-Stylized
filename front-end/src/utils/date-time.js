@@ -12,11 +12,16 @@ const timeFormat = /\d\d:\d\d/;
  * @returns {string}
  *  the specified Date formatted as YYYY-MM-DD
  */
-function asDateString(date) {
+/*function asDateString(date) {
   return `${date.getFullYear().toString(10)}-${(date.getMonth() + 1)
     .toString(10)
     .padStart(2, "0")}-${date.getDate().toString(10).padStart(2, "0")}`;
+}*/
+function asDateString(date) {
+  return `${date.getUTCFullYear()}-${(date.getUTCMonth() + 1).toString().padStart(2, '0')}-${date.getUTCDate().toString().padStart(2, '0')}`;
 }
+
+
 
 /**
  * Format a date string in ISO-8601 format (which is what is returned from PostgreSQL) as YYYY-MM-DD.
@@ -46,7 +51,12 @@ export function formatAsTime(timeString) {
  *  the today's date formatted as YYYY-MM-DD
  */
 export function today() {
-  return asDateString(new Date());
+  //return asDateString(new Date());
+  const now = new Date(); // gets current date and time
+  console.log('today (local):', now);
+  const utcString = now.toISOString().substring(0,10); // converts to UTC and extracts date
+  console.log('today (UTC):', utcString);
+  return utcString;
 }
 
 /**
@@ -58,10 +68,13 @@ export function today() {
  */
 export function previous(currentDate) {
   let [ year, month, day ] = currentDate.split("-");
-  month -= 1;
-  const date = new Date(year, month, day);
-  date.setMonth(date.getMonth());
-  date.setDate(date.getDate() - 1);
+  //month -= 1;
+  //const date = new Date(year, month, day);
+  //date.setMonth(date.getMonth());
+  //date.setDate(date.getDate() - 1);
+  const date = new Date(Date.UTC(year, month - 1, day));
+  date.setUTCDate(date.getUTCDate() - 1); // subtract one day using UTC
+  console.log('previous:', asDateString(date));
   return asDateString(date);
 }
 
@@ -74,9 +87,12 @@ export function previous(currentDate) {
  */
 export function next(currentDate) {
   let [ year, month, day ] = currentDate.split("-");
-  month -= 1;
-  const date = new Date(year, month, day);
-  date.setMonth(date.getMonth());
-  date.setDate(date.getDate() + 1);
+  //month -= 1;
+  //const date = new Date(year, month, day);
+  //date.setMonth(date.getMonth());
+  //date.setDate(date.getDate() + 1);
+  const date = new Date(Date.UTC(year, month - 1, day));
+  date.setUTCDate(date.getUTCDate() + 1); // add one day using UTC
+  console.log('next:', asDateString(date));
   return asDateString(date);
 }

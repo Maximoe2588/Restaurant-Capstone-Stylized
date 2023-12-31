@@ -5,6 +5,8 @@ import { today, previous, next } from "../utils/date-time";
 // render the date navigation with links to previous, today and next dates
 
 function DateNavigation({ date }) {
+  console.log('DateNavigation date:', date);
+  
   return (
     <>
       <h5 className="text-center mt-3 text-monospace">Date Navigation</h5>

@@ -8,30 +8,43 @@ import ReservationsList from "../reservations/list/ReservationsList";
 import TablesList from "../tables/TablesList";
 import CustomDatePicker from "./CustomDatePicker";
 import "./Dashboard.css";
+import { today } from "../utils/date-time";
 
 
 
-function Dashboard({ date }) {
-    const dateInUrl = useQuery().get("date");
+function Dashboard() {
+    /*const dateInUrl = useQuery().get("date");
     if (dateInUrl) {
       date = dateInUrl;
-    }
+    }*/
+
+    const query = useQuery();
+    const dateQuery = query.get("date");
+    const [date, setDate] = useState(dateQuery || today());
+  
+  
   
     const [reservations, setReservations] = useState("loading");
     const [reservationsError, setReservationsError] = useState(null);
   
     const [tables, setTables] = useState("loading");
     const [tablesError, setTablesError] = useState(null);
+
+    useEffect(() => {
+      if (dateQuery) {
+        setDate(dateQuery);
+      }
+    }, [dateQuery]);
   
-    useEffect(loadReservations, [date]);
+    /*useEffect(loadReservations, [date]);
     useEffect(loadTables, []);
     useEffect(() => {
       console.log('Dashboard date has changed:', date);
       loadReservations();
-  }, [date]);
+  }, [date]);*/
 
   
-    function loadReservations() {
+    /*function loadReservations() {
       setReservations("loading");
   
       const abortController = new AbortController();
@@ -53,13 +66,37 @@ function Dashboard({ date }) {
       listTables(abortController.signal).then(setTables).catch(setTablesError);
   
       return () => abortController.abort();
-    }
+    }*/
+  
+    useEffect(() => {
+      const abortController = new AbortController();
+      setReservationsError(null);
+  
+      listReservations({ date }, abortController.signal)
+        .then(setReservations)
+        .catch(setReservationsError);
+  
+      return () => abortController.abort();
+    }, [date]);
+  
+    useEffect(() => {
+      const abortController = new AbortController();
+      setTablesError(null);
+  
+      listTables(abortController.signal)
+        .then(setTables)
+        .catch(setTablesError);
+  
+      return () => abortController.abort();
+    }, []);
   
     // convert YYYY-MM-DD to a more user-friendly format, examples:
     // const displayDate = formatDisplayDate(date);
     // const displayDateShort = formatDisplayDate(date, "short");
     const displayDateLong = formatDisplayDate(date, "long");
+    console.log('Dashboard: displayDateLong', displayDateLong);
   
+
     return (
       <main>
         <div className="row">

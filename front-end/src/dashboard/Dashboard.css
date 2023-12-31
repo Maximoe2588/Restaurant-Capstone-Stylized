@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     padding-top: 50px;
+    font-size: 10px;
   }
   
   .react-datepicker__month-container {
@@ -11,6 +12,76 @@
     align-items: center; /* Move it above the navigation buttons; adjust as needed */
     justify-content: center; /* Align to the right; adjust as needed if necessary */
     z-index: 999999; /* Ensure it's above other elements */
+  }
+
+  .monthCalendar button {
+    margin-right: 10px; /* This will apply to all buttons inside .monthCalendar */
+  }
+  
+  .monthCalendar button:last-child {
+    margin-right: 10px; /* This removes the margin from the last button */
+  }
+  
+  .monthCalendar span {
+    margin: 0 10px;
+  }
+  
+
+
+ .react-datepicker__header--custom {
+  outline: none; /* remove focus outline */
+  border: none; /* remove default border */
+  background-color: transparent; /* transparent background */
+  cursor: pointer; /* pointer cursor on hover */
+  
+ }
+ .react-datepicker__header.react-datepicker__header--custom {
+  background-color: #499df6; /* Set background color */
+  color: white; /* Set text color */
+  padding: 8px; /* Add some padding */
+  text-align: center; /* Center the text inside the header */
+  border-top-left-radius: 4px; /* Round the top corners */
+  border-top-right-radius: 4px;
+  border-bottom: 1px solid #006fe6; /* Add a bottom border for some depth */
+}
+
+/* Style the header text for the month and year */
+.react-datepicker__header.react-datepicker__header--custom .react-datepicker__current-month {
+  font-weight: bold; /* Make the month and year bold */
+}
+
+/* Style the navigation buttons inside the header */
+.react-datepicker__header.react-datepicker__header--custom .react-datepicker__navigation {
+  background: transparent; /* Make the background transparent */
+  border: none; /* Remove borders */
+  color: white; /* Set the icon color */
+}
+
+/* Style the navigation buttons on hover */
+.react-datepicker__header.react-datepicker__header--custom .react-datepicker__navigation:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Slight white tint on hover */
+}
+
+/* Move the left arrow farther to the left */
+.react-datepicker__navigation--previous {
+  left: 50px;
+  padding-left: 50px;
+}
+
+/* Move the right arrow farther to the right */
+.react-datepicker__navigation--next {
+  right: 0; /* Adjust this value as needed */
+}
+
+
+
+  .react-datepicker__navigation {
+    top: 10px; /* adjust arrow position */
+    outline: none; /* remove focus outline */
+    border: none; /* remove default border */
+    background-color: transparent; /* transparent background */
+    cursor: pointer; /* pointer cursor on hover */
+    right: 20px;
   }
   
   .react-datepicker-popper {
@@ -29,6 +100,8 @@
 
   .react-datepicker__header {
     padding-top: 30px;
+    background-color: #f0f0f0; /* light grey background */
+    border-bottom: 1px solid #ddd; /* subtle border */
   }
 
   @media (max-width: 768px) {
@@ -36,3 +109,120 @@
       top: -250px; /* Adjust for smaller screens */
     }
   }
+
+  .custom-datepicker-input {
+    font-size: 20em;  /* Adjust the font size as needed */
+    font-style: italic;  /* Make the font italic */
+    width: 200px;     
+    align-content: center;    /* Adjust the width as needed to make the container smaller */
+  }
+  
+  /* If you want to target the placeholder text specifically, you can use the ::placeholder pseudo-element */
+  .custom-datepicker-input::placeholder {
+    font-size: 20em;  /* Adjust the font size as needed */
+    font-style: italic;  /* Make the font italic */
+    align-content: center;
+  }
+  
+  /* Adjust the container of the DatePicker */
+  .react-datepicker-wrapper {
+    width: 200px;  /* Adjust the width as needed */
+    align-content: center;
+  }
+  
+  /* You may need to adjust the width of the input field inside the wrapper as well */
+  .react-datepicker__input-container input {
+    width: 100%; /* This will make the input field take up the full width of the wrapper */
+    align-content: center;
+  }
+  /* Adjust the flex container */  
+.mx-auto.justify-content-center.text-center {
+  display: flex;
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content (if needed) */
+  /* If there is extra space on one side, you can adjust padding or margin here */
+}
+
+/* Target the date picker directly if it has specific margins causing the issue */
+.custom-datepicker-input {
+  margin: auto; /* This will apply an automatic margin to all sides, centering the element */
+}
+
+/* Styles for the datepicker container */
+.react-datepicker {
+  border: 1px solid #ddd; /* subtle border */
+  border-radius: 4px; /* rounded corners */
+  font-family: Arial, sans-serif; /* consistent font */
+}
+
+
+/* Styles for the navigation arrows */
+.react-datepicker__navigation {
+  align-items: center;
+  width: 32px;
+  display: flex;
+  top: 10px; /* adjust arrow position */
+  right: 50px;
+  outline: none; /* remove focus outline */
+  border: none; /* remove default border */
+  background-color: transparent; /* transparent background */
+  cursor: pointer; /* pointer cursor on hover */
+}
+.react-datepicker__navigation--previous {
+  left: 50px; /* Adjust position from the left */
+}
+
+/* Styles for the next button */
+.react-datepicker__navigation--next {
+  right: 10px; /* Adjust position from the right */
+}
+
+
+
+
+/* Styles for the navigation arrows when hovered */
+.react-datepicker__navigation:hover {
+  background-color: #e9e9e9; /* slightly darker background on hover */
+}
+
+/* Styles for the month and year dropdowns */
+.react-datepicker__month-dropdown-container,
+.react-datepicker__year-dropdown-container {
+  background-color: #fff; /* white background */
+  padding: 5px; /* some padding around the text */
+}
+
+/* Styles for the days of the week */
+.react-datepicker__day-name {
+  color: #333; /* dark text for contrast */
+  font-weight: bold; /* bold font for legibility */
+}
+
+/* Styles for the day numbers */
+.react-datepicker__day {
+  color: #666; /* slightly lighter text for the days */
+  border-radius: 4px; /* rounded corners for the day numbers */
+}
+
+/* Styles for the selected day */
+.react-datepicker__day--selected {
+  background-color: #0057b7; /* a strong color for selection */
+  color: #fff; /* white text for contrast */
+}
+
+/* Styles for today's date */
+.react-datepicker__day--today {
+  font-weight: bold; /* make today's date bold */
+}
+
+/* Styles for hovered date */
+.react-datepicker__day:hover {
+  background-color: #e9e9e9; /* highlight on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .react-datepicker {
+    width: 100%; /* full width on small screens */
+  }
+}

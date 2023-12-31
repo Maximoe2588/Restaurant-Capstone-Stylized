@@ -1,31 +1,80 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import { useHistory } from 'react-router-dom';
 import 'react-datepicker/dist/react-datepicker.css';
+import addDays from 'date-fns/addDays';
+import subMonths from 'date-fns/subMonths';
+import addMonths from 'date-fns/addMonths';
+
 
 function CustomDatePicker({ initialDate }) {
-  const [selectedDate, setSelectedDate] = useState(new Date(initialDate));
+  
   const history = useHistory();
+  const initialUTCDate = new Date(initialDate + 'T00:00:00Z');
+  const [selectedDate, setSelectedDate] = useState(initialUTCDate);
+
+ // Calculate min and max dates
+ const today = new Date();
+ const minDate = today; // Today as the minimum date
+ const maxDate = addDays(today, 60); // 60 days from today as the maximum date
+
+
+  useEffect(() => {
+    setSelectedDate(new Date(initialDate + 'T00:00:00Z'));
+  }, [initialDate]);
+
 
   const handleDateChange = (date) => {
     try {
-      console.log('Selected date in CustomDatePicker:', date); 
       setSelectedDate(date);
-      const formattedDate = date.getFullYear() + '-' 
-                            + String(date.getMonth() + 1).padStart(2, '0') + '-' 
-                            + String(date.getDate()).padStart(2, '0');
-
+      const formattedDate = date.toISOString().substring(0, 10);
       history.push(`/dashboard?date=${formattedDate}`);
     } catch (error) {
       console.error("Error in handleDateChange:", error);
-      // Optionally, you could set an error state here and display it in the UI.
     }
   };
 
+
+  console.log('CustomDatePicker: selectedDate', selectedDate.toISOString());
+
   return (
     <div className="mx-auto justify-content-center text-center" >
-    <DatePicker selected={selectedDate} onChange={handleDateChange} />
-    </div>
+   
+    <DatePicker 
+        valueDefault={null}
+        onChange={handleDateChange} 
+        placeholderText="Select Date: yyyy-MM-dd"
+        helperText="Reserve up to 60 days in advance"
+        dateFormat="yyyy-MM-dd" 
+        minDate={minDate}
+        maxDate={maxDate}
+        appearance="subtle"
+        peekNextMonth
+        showMonthDropdown
+        showYearDropdown
+        dropdownMode="select"
+        renderCustomHeader={({ 
+          monthDate,
+          customHeaderCount,
+          decreaseMonth,
+          increaseMonth,
+          prevMonthButtonDisabled,
+          nextMonthButtonDisabled,
+        }) => (
+        <div className="monthCalendar" >
+          <button onClick ={decreaseMonth} disabled={prevMonthButtonDisabled} >
+           &larr;
+          </button>
+          <span>
+           {monthDate.toLocaleString('default', { month: 'long'})} {monthDate.getFullYear()}
+          </span>
+          <button onClick={increaseMonth} disabled={nextMonthButtonDisabled} >
+            &rarr;
+          </button>
+          </div>
+        )}
+        />
+     </div>
   );
 }
 

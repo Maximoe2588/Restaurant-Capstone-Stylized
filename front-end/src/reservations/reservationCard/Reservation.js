@@ -19,6 +19,10 @@ function Reservation({ reservation }) {
     const history = useHistory();
     const [cancelReservationError, setCancelReservationError] = useState(null);
 
+    let reservationStatusClass = status === "seated" ? "seated-reservation" : "";
+    let reservationBoxClass = status === "seated" ? "seated-reservation-box" : "reservation-box";
+   
+
     const confirmCancel = () => {
         if (window.confirm("Do you want to cancel this reservation?")) {
         const abortController = new AbortController();
@@ -32,7 +36,7 @@ function Reservation({ reservation }) {
     };
 
     return (
-        <div className="reservation-box">
+        <div className={reservationBoxClass}>
             <div className="reservation-details">
                 <span>
                 <span>{reservation_time}</span>
@@ -52,7 +56,7 @@ function Reservation({ reservation }) {
             <div className="reservation-status">
                 <span>
                 {"Status: "}
-                <span data-reservation-id-status={reservation_id}>
+                <span className={reservationStatusClass} data-reservation-id-status={reservation_id}>
                     {status}
                 </span>
                     <ErrorAlert error={cancelReservationError} />
