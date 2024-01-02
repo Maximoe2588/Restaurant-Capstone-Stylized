@@ -17,12 +17,20 @@ Developed with a Test-Driven Development (TDD) approach, our application caters 
 - **Create Reservations:** Register new reservations with customer contact details. Includes multiple validations to prevent bookings outside business hours.
   
   ![Reservation Page 3](/front-end/public/images/Reservation3.png)
-  
+
 - **Manage Tables:** Define each table and its seating capacity for optimal reservation assignments.
+
+  ![Reservation Page 4](/front-end/public/images/Reservation4.png)
   
 - **Dashboard:** Access a daily dashboard displaying reservations and tables, with date navigation for efficient customer flow management.
+
+  ![Reservation Page 1](/front-end/public/images/Reservation1.png)
+
 - **Edit Reservations:** Update reservation details as per customer requests.
 - **Search Functionality:** Find reservations using a partial match of the phone number.
+
+  ![Reservation Page 2](/front-end/public/images/Reservation2.png)
+
 - **Status Control:** Monitor and update the status of reservations and tables throughout the customer dining experience.
 
 ## Technologies
