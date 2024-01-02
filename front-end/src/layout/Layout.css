@@ -4,12 +4,13 @@
   min-width: 200px;
 }
 
-.reservation-box, .seated-reservation-box {
+.reservation-box, .seated-reservation-box, .cancelled-reservation-box {
   display: flex;
   flex-direction: column;
   border: 1px solid #ccc;
   padding: 30px;
   margin-bottom: 5px;
+  align-content: center;
 }
 
 
@@ -96,7 +97,7 @@ span.occupied {
 
 
 .seated-reservation-box {
-  background-color: #f0f0f0; 
+  background-color: rgb(161, 255, 161); 
   border: 1px solid #ddd; 
 }
 
@@ -120,3 +121,16 @@ span.occupied {
   border: 1px solid #f0f0f0; /* Light grey border */
   
 }
+
+/* Add a new class for cancelled reservations */
+.cancelled-reservation {
+  font-style: italic;
+  text-decoration: line-through; /* This will strike through the text */
+  color: #a5a5a5; /* A grey color to indicate the reservation is inactive */
+}
+
+.cancelled-reservation-box {
+  background-color: #f8d7da; /* A light red or pink to indicate cancellation */
+  border: 1px solid #f5c6cb; /* A slightly darker border to match */
+}
+

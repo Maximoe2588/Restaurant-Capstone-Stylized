@@ -8,7 +8,7 @@
   }
   
   .react-datepicker__month-container {
-    position: relative; /* Position it absolutely relative to its positioned parent */
+     /* Position it absolutely relative to its positioned parent */
     align-items: center; /* Move it above the navigation buttons; adjust as needed */
     justify-content: center; /* Align to the right; adjust as needed if necessary */
     z-index: 999999; /* Ensure it's above other elements */

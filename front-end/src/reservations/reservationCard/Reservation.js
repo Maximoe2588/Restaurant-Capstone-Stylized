@@ -19,8 +19,17 @@ function Reservation({ reservation }) {
     const history = useHistory();
     const [cancelReservationError, setCancelReservationError] = useState(null);
 
-    let reservationStatusClass = status === "seated" ? "seated-reservation" : "";
-    let reservationBoxClass = status === "seated" ? "seated-reservation-box" : "reservation-box";
+    let reservationStatusClass = '';
+    let reservationBoxClass = 'reservation-box';
+    
+    if (status === "seated") {
+        reservationStatusClass = "seated-reservation";
+        reservationBoxClass = "seated-reservation-box";
+    } else if (status === "cancelled") {
+        reservationStatusClass = "cancelled-reservation";
+        reservationBoxClass = "cancelled-reservation-box";
+    }
+
    
 
     const confirmCancel = () => {

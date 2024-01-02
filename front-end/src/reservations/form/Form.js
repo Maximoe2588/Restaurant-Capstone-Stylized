@@ -29,6 +29,8 @@ function Form({ method }) {
 
     const [formData, setFormData] = useState({ ...initialFormState });
 
+
+
 // declares an effect that runs when reservationId or method changes and fills the form fields
 // when editing a a reservation
 
