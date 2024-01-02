@@ -15,7 +15,11 @@ This full-stack capstone project was developed for Thinkful's Software Engineeri
 Developed with a Test-Driven Development (TDD) approach, our application caters to the needs of restaurant employees, allowing them to:
 
 - **Create Reservations:** Register new reservations with customer contact details. Includes multiple validations to prevent bookings outside business hours.
+  
+  ![Reservation Page 3](/front-end/public/images/Reservation3.png)
+  
 - **Manage Tables:** Define each table and its seating capacity for optimal reservation assignments.
+  
 - **Dashboard:** Access a daily dashboard displaying reservations and tables, with date navigation for efficient customer flow management.
 - **Edit Reservations:** Update reservation details as per customer requests.
 - **Search Functionality:** Find reservations using a partial match of the phone number.
