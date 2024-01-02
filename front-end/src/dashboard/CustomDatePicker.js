@@ -46,7 +46,7 @@ function CustomDatePicker({ initialDate }) {
         showIcon
         valueDefault={null}
         onChange={handleDateChange} 
-        placeholderText="Select Date: yyyy-MM-dd"
+        placeholderText="Select Date"
         helperText="Reserve up to 60 days in advance"
         dateFormat="yyyy-MM-dd" 
         minDate={minDate}
