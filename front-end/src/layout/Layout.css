@@ -9,7 +9,7 @@
   flex-direction: column;
   border: 1px solid #ccc;
   padding: 30px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 
@@ -74,8 +74,6 @@ span.free {
 .seated-reservation {
   font-style: italic; /* make the font italic */
   font-family: 'Times New Roman', serif; /* change the font, example given */
-  background-color: #f0e68c; /* a light background color for emphasis */
-  border: 2px solid #ffd700; /* a gold border to make it stand out */
 }
 
 /* Modify the existing occupied class to only change the text color */
@@ -85,8 +83,7 @@ span.occupied {
 
 /* Apply styles to the card header to differentiate the seated table */
 .card-header.seated {
-  background-color: #ffd700; /* gold background for the header */
-  color: black; /* text color change if needed */
+  color: red; /* text color change if needed */
 }
 
 
@@ -119,3 +116,7 @@ span.occupied {
   background-color: #ffffff; /* White background for contrast */
 }
  
+.card-deck > div {
+  border: 1px solid #f0f0f0; /* Light grey border */
+  
+}

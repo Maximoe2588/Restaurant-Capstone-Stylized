@@ -3,6 +3,8 @@ import DatePicker from 'react-datepicker';
 import { useHistory } from 'react-router-dom';
 import 'react-datepicker/dist/react-datepicker.css';
 import addDays from 'date-fns/addDays';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import subMonths from 'date-fns/subMonths';
 import addMonths from 'date-fns/addMonths';
 
@@ -41,6 +43,7 @@ function CustomDatePicker({ initialDate }) {
     <div className="mx-auto justify-content-center text-center" >
    
     <DatePicker 
+        showIcon
         valueDefault={null}
         onChange={handleDateChange} 
         placeholderText="Select Date: yyyy-MM-dd"
@@ -53,6 +56,7 @@ function CustomDatePicker({ initialDate }) {
         showMonthDropdown
         showYearDropdown
         dropdownMode="select"
+        calendarIcon={<FontAwesomeIcon icon={faCalendarAlt} />}
         renderCustomHeader={({ 
           monthDate,
           customHeaderCount,

@@ -126,7 +126,7 @@
   
   /* Adjust the container of the DatePicker */
   .react-datepicker-wrapper {
-    width: 200px;  /* Adjust the width as needed */
+    width: 230px;  /* Adjust the width as needed */
     align-content: center;
   }
   
