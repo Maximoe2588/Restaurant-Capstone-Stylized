@@ -40,7 +40,7 @@ function CustomDatePicker({ initialDate }) {
   console.log('CustomDatePicker: selectedDate', selectedDate.toISOString());
 
   return (
-    <div className="mx-auto justify-content-center text-center" >
+    <div className="date-navigation-container" >
    
     <DatePicker 
         showIcon

@@ -225,6 +225,15 @@
 
 }
 
+
+.date-navigation-container{
+  display: flex;
+  align-items: center; /* This will vertically center align the items */
+  justify-content: space-between; /* This will give space between the items */
+  flex-direction: column;
+}
+
+
 /* Responsive styles */
 @media (max-width: 768px) {
   .react-datepicker {
