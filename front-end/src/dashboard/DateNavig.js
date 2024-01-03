@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { today, previous, next } from "../utils/date-time";
 
-// render the date navigation with links to previous, today and next dates
+
 
 function DateNavigation({ date }) {
   console.log('DateNavigation date:', date);

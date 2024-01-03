@@ -6,17 +6,17 @@ import { today, formatAsTime } from "../../utils/date-time";
 import ErrorAlert from "../../layout/ErrorAlert";
 
 
-//form component utilized to either create/edit a reservation
+
 
 function Form({ method }) {
 
-// uses params hook to get reservationID from the URL parameters
+
 
     const { reservation_id } = useParams();
     const [reservationsError, setReservationError] = useState(null);
     const history = useHistory();
 
-// when page first rendered will display initialFormState
+
 
     const initialFormState = {
         first_name: "",
@@ -29,10 +29,6 @@ function Form({ method }) {
 
     const [formData, setFormData] = useState({ ...initialFormState });
 
-
-
-// declares an effect that runs when reservationId or method changes and fills the form fields
-// when editing a a reservation
 
     useEffect(() => {
         if (method === "POST") return;
@@ -60,7 +56,7 @@ function Form({ method }) {
         });
     };
 
-    //uses conditional logic which call submitNew or submitEdit depending on method Prop
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -99,7 +95,7 @@ function Form({ method }) {
         return () => abortController.abort();
     };
 
-// will send user back to previous page if they cancel the form submission 
+
 
     const handleCancel = (event) => {
         event.preventDefault();

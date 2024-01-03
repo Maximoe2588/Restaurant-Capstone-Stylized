@@ -5,8 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import addDays from 'date-fns/addDays';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
-import subMonths from 'date-fns/subMonths';
-import addMonths from 'date-fns/addMonths';
+
 
 
 function CustomDatePicker({ initialDate }) {
@@ -15,10 +14,10 @@ function CustomDatePicker({ initialDate }) {
   const initialUTCDate = new Date(initialDate + 'T00:00:00Z');
   const [selectedDate, setSelectedDate] = useState(initialUTCDate);
 
- // Calculate min and max dates
+ 
  const today = new Date();
- const minDate = today; // Today as the minimum date
- const maxDate = addDays(today, 60); // 60 days from today as the maximum date
+ const minDate = today; 
+ const maxDate = addDays(today, 60); 
 
 
   useEffect(() => {
