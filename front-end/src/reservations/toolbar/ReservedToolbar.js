@@ -1,6 +1,6 @@
 import React from "react";
 
-// allows user to seat, edit, cancel reserved 
+ 
 
 function ReservedToolbar({ confirmCancel, id }) {
     return (

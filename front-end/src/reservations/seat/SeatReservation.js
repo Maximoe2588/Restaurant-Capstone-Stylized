@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 import { listTables, assignToTable, getReservation } from "../../utils/api";
 import ErrorAlert from "../../layout/ErrorAlert";
 
-//assigns seating to a reservation changing it's status
+
 
 function SeatReservation () {
 
@@ -24,7 +24,7 @@ function SeatReservation () {
     useEffect(() => {
         const abortController = new AbortController();
         setAllTablesError(null);
-    //fetch details for the current reservation ID
+  
         listTables(abortController.signal)
             .then(setAllTables)
             .catch(setAllTablesError);
@@ -47,7 +47,7 @@ function SeatReservation () {
         event.preventDefault();
         const abortController = new AbortController();
         setAssignTableError(null);
-    // assign the reservation to the selected table
+   
         assignToTable(reservation_id, formData.table_id, abortController.signal)
             .then(() => history.push(`/dashboard?date=${reservationDetails.reservation_date}`))
             .catch(setAssignTableError);

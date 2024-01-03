@@ -6,33 +6,33 @@ import ReservationsList from "../../reservations/list/ReservationsList";
 
 function Search() {
 
-    //state for mobile number query
+   
 
     const [mobileNumber, setMobileNumber] = useState([""]);
 
-    //state for search results
+ 
 
     const [reservations, setReservations] = useState([]);
     const [reservationsError, setReservationsError] = useState(null);
 
-    //state for search results message
+    
 
     const initialMessage = "search current reservations...";
     const [resultsMessage, setResultsMessage] = useState(initialMessage);
 
-    //changes search query input
+    
     const handleChange = ({ target }) => {
         setMobileNumber(target.value);
     };
 
-    //loads reservations for search query
+ 
     function loadReservations() {
         const abortController = new AbortController();
         setReservationsError(null);
         setReservations([]);
         setResultsMessage("...searching now!");
 
-        //call API to list res by mobile
+        
         listReservationsByMobile(mobileNumber, abortController.signal)
             .then(setReservations)
             .then(() => {
@@ -42,18 +42,18 @@ function Search() {
         })
         
             .catch(setReservationsError);
-        //abort function for cleanup
+        
         return () => abortController.abort();
     }
 
-    // handler for search query
+   
     const handleSubmit = (event) => {
         event.preventDefault();
 
         loadReservations();
     };
 
-    // handler for search results or message 
+    
     const searchResults = reservations.length ? (
     <>
         <h6 className="mt-5">Search Results:</h6>
@@ -63,7 +63,7 @@ function Search() {
         resultsMessage
 );
 
-    // renders search form and results 
+    
     return (
         <main>
         <div className="d-md-flex mb-3 text-center">

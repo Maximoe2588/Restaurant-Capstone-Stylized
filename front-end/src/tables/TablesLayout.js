@@ -8,7 +8,7 @@ function TablesLayout({ table }) {
     const [finishTableError, setFinishTableError] = useState(null);
     const history = useHistory();
 
- // check if the table is occupied
+
     const occupied = !!reservation_id;
 
 
@@ -22,7 +22,7 @@ function TablesLayout({ table }) {
 
   
   
-    // handle finishing a table
+
     const confirmFinish = async () => {
         if (
             window.confirm(
@@ -34,9 +34,9 @@ function TablesLayout({ table }) {
             setFinishTableError(null);
 
             try {
-                 // call the finishTable API to mark the table as free
+              
                 await finishTable(table_id, abortController.signal);
-                 // refresh the page after finishing the table
+                
                 history.go(0);
             } catch (error) {
                 setFinishTableError(error);
