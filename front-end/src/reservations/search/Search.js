@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { listReservationsByMobile } from "../../utils/api";
 import ErrorAlert from "../../layout/ErrorAlert";
 import ReservationsList from "../../reservations/list/ReservationsList";
+import './search.css';
 
 
 function Search() {
@@ -60,12 +61,13 @@ function Search() {
         <ReservationsList reservations={reservations} />
     </>
     ) : (
-        resultsMessage
+        <div className="initial-message">{resultsMessage}</div>
 );
 
     
     return (
         <main>
+        <div className="search-container">
         <div className="d-md-flex mb-3 text-center">
             <h1 className="mb-0">Search</h1>
         </div>
@@ -90,6 +92,7 @@ function Search() {
         </form>
         {searchResults}
             <ErrorAlert error={reservationsError} />
+            </div>
         </main>
     );
 }

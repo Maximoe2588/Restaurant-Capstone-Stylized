@@ -46,6 +46,7 @@ function Reservation({ reservation }) {
 
     return (
         <div className={reservationBoxClass}>
+            <div className="card-contents">
             <div className="reservation-details">
                 <span>
                 <span>{reservation_time}</span>
@@ -77,6 +78,7 @@ function Reservation({ reservation }) {
                     <ReservedToolbar confirmCancel={confirmCancel} id={reservation_id} />
                 </div>
         ) : null}
+        </div>
         </div>
         );
     }
