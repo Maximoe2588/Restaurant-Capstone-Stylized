@@ -134,3 +134,27 @@ span.occupied {
   border: 1px solid #f5c6cb; /* A slightly darker border to match */
 }
 
+.col {
+
+  min-height: 100% ;
+  margin: 0;
+}
+
+.container-fluid {
+min-height: 100%;
+margin: 0;
+
+}
+
+html, body {
+  min-height: 100%;
+  margin: 0;
+}
+.col { 
+min-height: 100%;
+}
+
+#root {
+  min-height: 100%;
+  /* Additional styles if needed */
+}
