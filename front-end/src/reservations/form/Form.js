@@ -53,6 +53,18 @@ function Form({ method }) {
     
         const handleChange = ({ target }) => {
             let value = target.value;
+
+            if (target.name === "reservation_date") {
+                const inputDate = new Date(value);
+                if (inputDate.getDay() === 2) { // 2 represents Tuesday
+                    const error = "Reservations cannot be made on Tuesdays as the restaurant is closed.";
+                    console.log(error); // For debugging
+                    setReservationError(error);
+                    return;
+                } else {
+                    setReservationError(null);
+                }
+            }
     
         if (target.name === "people" && typeof value === "string") {
             value = +value;
