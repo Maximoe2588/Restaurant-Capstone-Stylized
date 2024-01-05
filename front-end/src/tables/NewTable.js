@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { postTable } from "../utils/api";
 import ErrorAlert from "../layout/ErrorAlert";
-
+import './newTable.css';
 
 
 
@@ -53,6 +53,7 @@ function NewTable() {
         };
 
         return (
+            <div className="new-table-container">
             <section>
                 <div className="d-md-flex mb-3 text-center">
                     <h1 className="mb-0">New Table</h1>
@@ -117,6 +118,7 @@ function NewTable() {
         </form>
             <ErrorAlert error={tablesError} />
     </section>
+    </div>
     );
 }
 
