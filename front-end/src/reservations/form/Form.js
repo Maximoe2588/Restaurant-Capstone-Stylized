@@ -4,6 +4,8 @@ import { useParams } from "react-router";
 import { postReservation, updateReservation, getReservation } from "../../utils/api";
 import { today, formatAsTime } from "../../utils/date-time";
 import ErrorAlert from "../../layout/ErrorAlert";
+import addDays from 'date-fns/addDays';
+
 
 
 
@@ -15,6 +17,12 @@ function Form({ method }) {
     const { reservation_id } = useParams();
     const [reservationsError, setReservationError] = useState(null);
     const history = useHistory();
+
+    const todayDate = new Date();
+    const maxDate = addDays(todayDate, 60);
+
+    const formattedMinDate = todayDate.toISOString().split('T')[0]; // format as "yyyy-MM-dd"
+    const formattedMaxDate = maxDate.toISOString().split('T')[0]; // format as "yyyy-MM-dd"
 
 
 
@@ -169,6 +177,8 @@ function Form({ method }) {
                         onChange={handleChange}
                         value={formData.reservation_date}
                         required={true}
+                        min={formattedMinDate}
+                        max={formattedMaxDate}
                     />
                 </div>
                 </div>
