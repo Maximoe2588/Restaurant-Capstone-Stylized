@@ -1,0 +1,27 @@
+.new-res-container {
+    padding-left: 20px;
+    padding-top: 20px;
+    border-radius: 8px; /* Rounded corners for the container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    background-color: #f8f9fa;
+
+}
+
+.new-res-container h1 {
+    font-size: 3rem; /* Larger size */
+    letter-spacing: 0.05em; /* Space out the letters slightly */
+    font-weight: 300; /* Lighter weight, if it fits the design */
+    font-family: sans-serif;
+    font-weight: 10;
+    background-color: #f8f9fa;
+}
+
+.element.style {
+    padding-left: 20px;
+    padding-top: 20px;
+    background-color: #f8f9fa; /* Light background for the container */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners for the container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+
+}

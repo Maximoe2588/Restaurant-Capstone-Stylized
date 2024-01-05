@@ -134,11 +134,11 @@ span.occupied {
   border: 1px solid #f5c6cb; /* A slightly darker border to match */
 }
 
-.col {
+/*.col {
 
   min-height: 100% ;
   margin: 0;
-}
+}*/
 
 .container-fluid {
 min-height: 100%;
@@ -152,9 +152,9 @@ html, body {
   margin: 0;
   height: 100%!important;
 }
-.col { 
+/*.col { 
 min-height: 100%;
-}
+}*/
 
 #root {
   min-height: 100%;
@@ -164,4 +164,9 @@ min-height: 100%;
 
 .card-contents {
   margin-right: 0%;
+}
+
+.search {
+
+
 }
